@@ -44,8 +44,20 @@ const calculator = (number1, number2) => {
   return objResult;
 };
 
-const arrayGenerator = (type, object) => {};
+const arrayGenerator = (type, object) => {
+  let result = [];
 
-console.log(calculator(1, 2));
+  if (type === 'keys') {
+    result = Object.keys(object);
+  } else if (type === 'values') {
+    result = Object.values(object);
+  } else if (type === 'entries') {
+    result = Object.entries(object);
+  }
+  return result;
+};
+
+// console.log(calculator(1, 2));
+// console.log(arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 }));
 
 module.exports = { calculator, arrayGenerator };
