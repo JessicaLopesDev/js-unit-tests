@@ -46,14 +46,12 @@ const objeto = {
   drinks: { agua: 3.90, cerveja: 6.90 },
 };
 
+const arrayDrinksKeys = Object.keys(objeto.drinks);
+const arrayFoodKeys = Object.keys(objeto.food);
+
 let arrayConsumption = [];
 
 const orderProduct = (product) => {
-  const arrayDrinksKeys = Object.keys(objeto.drinks);
-  const arrayFoodKeys = Object.keys(objeto.food);
-
-  // if (product === 'clear') return arrayConsumption = [];
-
   if (arrayDrinksKeys.includes(product) || arrayFoodKeys.includes(product)) {
     arrayConsumption.push(product);
     return;
@@ -61,20 +59,38 @@ const orderProduct = (product) => {
     return 'Item indisponível';
 };
 
+const paymentCalc = () => {
+  let totalPayment = 0;
+
+  for (let index of arrayConsumption) {
+    if (arrayFoodKeys.includes(index)) {
+      totalPayment += objeto.food[index]; 
+    }
+    if (arrayDrinksKeys.includes(index)) {
+      totalPayment += objeto.drinks[index]; 
+    }
+  }
+  return totalPayment * 1.1;
+};
+
 const createMenu = (obj) => {
   const newObj = {
     fetchMenu: () => obj,
     consumption: arrayConsumption,
     order: orderProduct,
+    pay: paymentCalc,
   };
   return newObj;
 };
 
 const meuRestaurante = createMenu(objeto);
 // const keysFetchMenu = Object.keys(meuRestaurante.fetchMenu());
+// meuRestaurante.order('coxinha');
+// meuRestaurante.order('cerveja');
+// meuRestaurante.order('agua');
+// meuRestaurante.order('agua');
 // console.log(meuRestaurante.consumption);
-// console.log(meuRestaurante.order('coxinha'));
-// console.log(meuRestaurante.consumption);
+// console.log(meuRestaurante.pay());
 // Faça o item 5 no arquivo tests/restaurant.spec.js
 // 6: Adicione ao objeto retornado por `createMenu()` uma chave de nome `consumption` que, como valor inicial, tem um array vazio.
 // Faça o item 7 no arquivo tests/restaurant.spec.js
@@ -84,9 +100,7 @@ const meuRestaurante = createMenu(objeto);
 // - senão, deve exibir a mensagem "Item indisponível" e não adicionar nada ao array
 // Ex: obj.order('coxinha') --> ['coxinha']
 // Ex: obj.order('picanha') --> Exibe "Item indisponível"
-
 // Faça os ítens de 9 a 11 no arquivo tests/restaurant.spec.js
-
 // 12: Adicione ao objeto retornado por `createMenu()` uma chave `pay` armazenando uma função que:
 // - percorrerá item a item de `objetoRetornado.consumption`;
 // - fará a soma do preço desses itens;
