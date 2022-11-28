@@ -46,11 +46,13 @@ const objeto = {
   drinks: { agua: 3.90, cerveja: 6.90 },
 };
 
-const arrayConsumption = [];
+let arrayConsumption = [];
 
 const orderProduct = (product) => {
   const arrayDrinksKeys = Object.keys(objeto.drinks);
   const arrayFoodKeys = Object.keys(objeto.food);
+
+  // if (product === 'clear') return arrayConsumption = [];
 
   if (arrayDrinksKeys.includes(product) || arrayFoodKeys.includes(product)) {
     arrayConsumption.push(product);
