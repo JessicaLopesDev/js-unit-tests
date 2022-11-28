@@ -63,13 +63,16 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     expect(verifyIsArray).toBe(true);
   })
   // 6: Faça a implementação do item 6 do README no arquivo src/restaurant.js.
-  
   // 7: Verifique se, ao chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro
   // - se a string existir nas chaves 'food' ou 'drink', deve ser adicionada ao array consumption
   // - senão, deve exibir a mensagem "Item indisponível" e não adicionar nada ao array
   // Ex: obj.order('coxinha') --> ['coxinha']
   // Ex: obj.order('picanha') --> Exibe "Item indisponível"
-
+  it('meurestaurante.order', () => {
+    meuRestaurante.order('coxinha');
+    expect(meuRestaurante.consumption).toEqual(["coxinha"]);
+    expect(meuRestaurante.order('refrigerante')).toEqual('Item indisponível');
+  });
   // 8: Faça a implementação do item 8 do README no arquivo src/restaurant.js.
 
   // 9: Verifique se, ao adicionar três pedidos em sequência, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.

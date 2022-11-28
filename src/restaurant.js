@@ -46,21 +46,35 @@ const objeto = {
   drinks: { agua: 3.90, cerveja: 6.90 },
 };
 
+const arrayConsumption = [];
+
+const orderProduct = (product) => {
+  const arrayDrinksKeys = Object.keys(objeto.drinks);
+  const arrayFoodKeys = Object.keys(objeto.food);
+
+  if (arrayDrinksKeys.includes(product) || arrayFoodKeys.includes(product)) {
+    arrayConsumption.push(product);
+    return;
+  }
+    return 'Item indisponível';
+};
+
 const createMenu = (obj) => {
   const newObj = {
     fetchMenu: () => obj,
-    consumption: [''],
+    consumption: arrayConsumption,
+    order: orderProduct,
   };
   return newObj;
 };
 
 const meuRestaurante = createMenu(objeto);
 // const keysFetchMenu = Object.keys(meuRestaurante.fetchMenu());
-console.log(typeof meuRestaurante.consumption);
+// console.log(meuRestaurante.consumption);
+// console.log(meuRestaurante.order('coxinha'));
+// console.log(meuRestaurante.consumption);
 // Faça o item 5 no arquivo tests/restaurant.spec.js
-
 // 6: Adicione ao objeto retornado por `createMenu()` uma chave de nome `consumption` que, como valor inicial, tem um array vazio.
-
 // Faça o item 7 no arquivo tests/restaurant.spec.js
 
 // 8: Crie uma função, associada à chave 'order', que, ao receber uma string como parâmetro, adiciona essa string ao array da chave 'consumption'.
