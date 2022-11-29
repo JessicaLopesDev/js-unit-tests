@@ -81,7 +81,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     expect(meuRestaurante.consumption).toEqual(["coxinha", "cerveja", "agua"]);
   });
   // 10: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a `consumption`.
-  it('meurestaurante.consumption', () => {
+  it('itens repetidos', () => {
     meuRestaurante.order('agua');
     expect(meuRestaurante.consumption).toEqual(["coxinha", "cerveja", "agua", "agua"]);
   });
