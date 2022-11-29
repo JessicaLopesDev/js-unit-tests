@@ -23,7 +23,6 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contendo os valores esperados', () => {
-    // ESCREVA SEUS TESTES ABAIXO:
     const testeObj2 = circle(2);
     const testeObj3 = circle(3);
 

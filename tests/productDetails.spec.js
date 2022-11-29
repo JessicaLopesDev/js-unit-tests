@@ -31,7 +31,6 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    // ESCREVA SEUS TESTES ABAIXO:
     const products = productDetails('Alcool gel', 'Máscara');
     const verifyIsArray = Array.isArray(products);
     // Teste se productDetails é uma função.
@@ -45,7 +44,6 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     
     // Teste se os dois itens dentro do array retornado pela função são objetos.
     expect(typeof products[0] && typeof products[1]).toBe('object');
-    // expect(typeof products[1]).toBe('object');
     
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
     expect(products[0]).not.toBe(products[1]);

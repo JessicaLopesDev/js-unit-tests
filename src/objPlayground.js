@@ -57,7 +57,4 @@ const arrayGenerator = (type, object) => {
   return result;
 };
 
-// console.log(calculator(1, 2));
-// console.log(arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 }));
-
 module.exports = { calculator, arrayGenerator };
